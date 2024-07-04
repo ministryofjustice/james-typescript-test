@@ -1,8 +1,8 @@
 {
-  "name": "hmpps-template-typescript",
+  "name": "james-typescript-test",
   "version": "0.0.1",
-  "description": "HMPPS Typescript Template",
-  "repository": "git@github.com:ministryofjustice/hmpps-template-typescript.git",
+  "description": "James Typescript Test",
+  "repository": "git@github.com:ministryofjustice/james-typescript-test.git",
   "license": "MIT",
   "scripts": {
     "prepare": "husky",
