@@ -42,12 +42,12 @@ generic-service:
 
   namespace_secrets:
     james-dev:
-      APPINSIGHTS_INSTRUMENTATIONKEY: "APPINSIGHTS_INSTRUMENTATIONKEY"
-      API_CLIENT_ID: "API_CLIENT_ID"
-      API_CLIENT_SECRET: "API_CLIENT_SECRET"
-      SYSTEM_CLIENT_ID: "SYSTEM_CLIENT_ID"
-      SYSTEM_CLIENT_SECRET: "SYSTEM_CLIENT_SECRET"
-      SESSION_SECRET: "SESSION_SECRET"
+      API_CLIENT_ID: "changeme",
+      API_CLIENT_SECRET: "changeme",
+      APPINSIGHTS_INSTRUMENTATIONKEY: "b44af8fc-1647-443d-8cea-55c5cfbd4518",
+      SESSION_SECRET: "2e4a816e91bf9d64f967",
+      SYSTEM_CLIENT_ID: "changeme",
+      SYSTEM_CLIENT_SECRET: "changeme"
     elasticache-redis:
       REDIS_HOST: "primary_endpoint_address"
       REDIS_AUTH_TOKEN: "auth_token"
