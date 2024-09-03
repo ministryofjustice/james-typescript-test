@@ -1,6 +1,12 @@
 import sys
 import json
 
+sev_lookup={
+  'high':'error',
+  'moderate':'warning',
+  'low':'note'
+}
+
 def eprint(*args, **kwargs):
   print(*args, file=sys.stderr, **kwargs)
 
@@ -53,10 +59,13 @@ def main():
   
   for each_result_key in results_dict.keys():
     this_result=results_dict[each_result_key]
+    if this_result['severity'] in sev_lookup:
+      level=sev_lookup[this_result['severity']]
+    else:
+      level='none'
     result_dict={
-      'ruleID': this_result['name'],
-      'level': this_result['severity'],
-      'message': {'text': 'This is some text'}
+      'level': level,
+      'message': {'text': json.dumps(this_result)}
     }
     result_list.append(result_dict)
   output_dict['runs'][0]['results']=result_list
