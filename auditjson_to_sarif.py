@@ -37,7 +37,6 @@ def main():
           }
         },
         "results": [],
-        "locations": [],
         "artifacts": []
       }
     ]
@@ -67,10 +66,10 @@ def main():
     result_dict={
       'level': level,
       'message': {'text': json.dumps(this_result)},
-      "locations": [ {
-        "physicalLocation": {
-          "artifactLocation": {
-            "uri": this_result['name']
+      'locations': [ {
+        'physicalLocation': {
+          'artifactLocation': {
+            'uri': this_result['name']
             }
           }
       } ]
