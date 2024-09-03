@@ -59,7 +59,7 @@ def main():
       'message': {'text': 'This is some text'}
     }
     result_list.append(result_dict)
-  output_dict['results']=result_list
+  output_dict['runs'][0]['results']=result_list
 
   with open(output_file,'w') as f:
     json.dump(output_dict, f)
