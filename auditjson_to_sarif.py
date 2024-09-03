@@ -36,7 +36,8 @@ def main():
               "version": "0.0.13"
           }
         },
-        "results": [],  
+        "results": [],
+        "locations": [],
         "artifacts": []
       }
     ]
@@ -65,7 +66,14 @@ def main():
       level='none'
     result_dict={
       'level': level,
-      'message': {'text': json.dumps(this_result)}
+      'message': {'text': json.dumps(this_result)},
+      "locations": [ {
+        "physicalLocation": {
+          "artifactLocation": {
+            "uri": this_result['name']
+            }
+          }
+      } ]
     }
     result_list.append(result_dict)
   output_dict['runs'][0]['results']=result_list
