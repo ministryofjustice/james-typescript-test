@@ -54,7 +54,7 @@ def main():
     result_dict={
       'ruleID': this_result['name'],
       'level': this_result['severity'],
-      'message': {'text': json.dumps(this_result).replace(',',',\n')}
+      'message': {'text': 'This is some text'}
     }
     result_list.append(result_dict)
   output_dict['results']=result_list
