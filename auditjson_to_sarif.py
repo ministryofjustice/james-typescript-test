@@ -22,16 +22,18 @@ def main():
     "version": "2.1.0",
     "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.4.json",
     "runs": [
-        {
-          "tool": {
+      {
+        "tool": {
             "driver": {
-              "name": "npx audit-ci@^7"
+              "name": "npx audit-ci@^7",
+              "rules": [],
+              "version": "0.0.13"
           }
-        }
+        },
+        "results": [],  
+        "artifacts": []
       }
-    ],
-    "results": [],  
-    "artifacts": []
+    ]
   } 
 
   # Populate the results
