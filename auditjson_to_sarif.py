@@ -63,12 +63,13 @@ def main():
       level=sev_lookup[this_result['severity']]
     else:
       level='none'
-    message=''
+    full_description=''
     for each_element in this_result.keys():
-      message+=f'{each_element}: {this_result[each_element]}\n'
+      full_description+=f'{each_element}: {this_result[each_element]}\n'
     result_dict={
       'level': level,
-      'message': {'text': message},
+      'message': {'text': this_result['name']},
+      'full_description': full_description,
       'locations': [ {
         'physicalLocation': {
           'artifactLocation': {
