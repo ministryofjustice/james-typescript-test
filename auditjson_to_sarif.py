@@ -63,9 +63,12 @@ def main():
       level=sev_lookup[this_result['severity']]
     else:
       level='none'
+    message=''
+    for each_element in this_result.keys():
+      message+=f'{each_element}: {this_result[each_element]}\n'
     result_dict={
       'level': level,
-      'message': {'text': json.dumps(this_result)},
+      'message': {'text': message},
       'locations': [ {
         'physicalLocation': {
           'artifactLocation': {
