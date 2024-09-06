@@ -54,27 +54,6 @@ def main():
             ]
           }
         ]
-      },
-      {
-        "type": "section",
-        "fields": [
-          {
-            "type": "mrkdwn",
-            "text": f"*Workflow:*\n{server_url}/{repository}/actions/runs/{run_id}|{workflow}"
-          },
-          {
-            "type": "mrkdwn",
-            "text": f"*Job:*\n{job}"
-          },
-          {
-            "type": "mrkdwn",
-            "text": f"*Repo:*\n{repository}"
-          },
-          {
-            "type": "mrkdwn",
-            "text": f"*Project:*\n{repository_name}"
-          }
-        ]
       }
     ]
   }
