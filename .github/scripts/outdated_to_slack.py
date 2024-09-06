@@ -24,7 +24,7 @@ def main():
     if each_arg=='-o' and len(args)>(args.index('-o')+1):
       output_file=args[args.index('-o')+1]
   
-  server_url=os.getenv('github.server_url')
+  server_url=os.getenv('server_url')
 
   slack_template = { 
     "text": "npm outdated scan identified issues",
