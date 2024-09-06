@@ -1,5 +1,6 @@
 import sys
 import json
+import os
 
 sev_lookup={
   'high':'error',
@@ -14,7 +15,7 @@ def main():
   if len(sys.argv)<2:
     eprint('Usage: python3 outdated_to_slack.py <<input.txt>> [-o output.json]')
     sys.exit(1)
-
+  server_url=
   # Default for output file if required
   args=sys.argv
   input_file=args[1]
@@ -22,6 +23,8 @@ def main():
   for each_arg in args:
     if each_arg=='-o' and len(args)>(args.index('-o')+1):
       output_file=args[args.index('-o')+1]
+  
+  server_url=os.getenv('github.server_url')
 
   slack_template = { 
     "text": "npm outdated scan identified issues",
@@ -35,19 +38,17 @@ def main():
       },
       {
         "type": "section",
-        "fields": [
-          {
+        "text": {
             "type": "mrkdwn",
             "text": ""
           }
-        ]
       },
       {
         "type": "section",
         "fields": [
           {
             "type": "mrkdwn",
-            "text": "*Workflow:*\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.workflow }}>"
+            "text": f"*Workflow:*\n<${server_url}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.workflow }}>"
           },
           {
             "type": "mrkdwn",
@@ -75,7 +76,7 @@ def main():
     eprint("Encountered an error - please check the input file")
     sys.exit(1)
   if results:
-    slack_template['blocks'][1]['fields'][0]['text']=f'```{results}```'
+    slack_template['blocks'][1]['text']['text']=f'```{results}```'
 
 
   with open(output_file,'w') as f:
