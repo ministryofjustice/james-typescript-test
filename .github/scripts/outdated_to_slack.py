@@ -75,7 +75,7 @@ def main():
     eprint("Encountered an error - please check the input file")
     sys.exit(1)
   if results:
-    slack_template['blocks'][2]['fields'][0]['text']=f'```{results}```'
+    slack_template['blocks'][1]['fields'][0]['text']=f'```{results}```'
 
 
   with open(output_file,'w') as f:
