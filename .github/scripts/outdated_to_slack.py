@@ -15,7 +15,7 @@ def main():
   if len(sys.argv)<2:
     eprint('Usage: python3 outdated_to_slack.py <<input.txt>> [-o output.json]')
     sys.exit(1)
-  server_url=
+
   # Default for output file if required
   args=sys.argv
   input_file=args[1]
