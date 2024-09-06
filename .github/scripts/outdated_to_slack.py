@@ -25,6 +25,11 @@ def main():
       output_file=args[args.index('-o')+1]
   
   server_url=os.getenv('server_url')
+  repository=os.getenv('repository')
+  run_id=os.getenv('run_id')
+  workflow=os.getenv('workflow')
+  job=os.getenv('job')
+  repository_name=os.getenv('repository_name')
 
   slack_template = { 
     "text": "npm outdated scan identified issues",
@@ -37,30 +42,37 @@ def main():
         }
       },
       {
-        "type": "section",
-        "text": {
-            "type": "mrkdwn",
-            "text": ""
+        "type": "rich_text",
+        "elements": [
+          {
+            "type": "rich_text_preformatted",
+            "elements": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           }
+        ]
       },
       {
         "type": "section",
         "fields": [
           {
             "type": "mrkdwn",
-            "text": f"*Workflow:*\n<${server_url}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.workflow }}>"
+            "text": f"*Workflow:*\n{server_url}/{repository}/actions/runs/{run_id}|{workflow}"
           },
           {
             "type": "mrkdwn",
-            "text": "*Job:*\n${{ github.job }}"
+            "text": f"*Job:*\n{job}"
           },
           {
             "type": "mrkdwn",
-            "text": "*Repo:*\n${{ github.repository }}"
+            "text": f"*Repo:*\n{repository}"
           },
           {
             "type": "mrkdwn",
-            "text": "*Project:*\n${{ github.event.repository.name }}"
+            "text": f"*Project:*\n{repository_name}"
           }
         ]
       }
@@ -76,8 +88,7 @@ def main():
     eprint("Encountered an error - please check the input file")
     sys.exit(1)
   if results:
-    slack_template['blocks'][1]['text']['text']=f'```{results}```'
-
+    slack_template['blocks'][1]['elements'][0]['elements'][0]['text']=results
 
   with open(output_file,'w') as f:
     json.dump(slack_template, f)
