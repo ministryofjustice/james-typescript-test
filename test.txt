@@ -1,8 +1,0 @@
-Package         Current  Wanted  Latest  Location                     Depended by
-govuk-frontend    5.4.0   5.6.0   5.6.0  node_modules/govuk-frontend  @ministryofjustice/frontend
-govuk-frontend    5.4.0   5.6.0   5.6.0  node_modules/govuk-frontend  james-typescript-test
-typescript        5.5.3   5.5.4   5.5.4  node_modules/typescript      @jgoz/esbuild-plugin-typecheck
-typescript        5.5.3   5.5.4   5.5.4  node_modules/typescript      james-typescript-test
-typescript        5.5.3   5.5.4   5.5.4  node_modules/typescript      jest-html-reporter
-typescript        5.5.3   5.5.4   5.5.4  node_modules/typescript      ts-api-utils
-typescript        5.5.3   5.5.4   5.5.4  node_modules/typescript      ts-jest
