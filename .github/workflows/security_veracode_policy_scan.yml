@@ -7,7 +7,7 @@ on:
 
 jobs:
   security-veracode-policy-check:
-    name: Project security npm dependency check
+    name: Project security veracode policy scan
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/security_veracode_policy_scan.yml@main
     with:
       channel_id: ${{ vars.SLACK_CHANNEL_ID }}
