@@ -93,10 +93,10 @@ def main():
       json.dump(slack_template, f)
     f.close()
     # return an output to decide whether to send a slack message or not
-    eprint("results checked - results=True")
-    print("results=True")
+    eprint("results checked - results=YES")
+    print("results=YES")
   else:
-    eprint("results checked - results=False")
-    print("results=False")
+    eprint("results checked - results=NO")
+    print("results=NO")
 if __name__ == '__main__':
   main()
