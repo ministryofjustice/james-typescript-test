@@ -74,44 +74,46 @@ def main():
       message+=f'{each_element}: {this_result[each_element]}\n'
     
     via=this_result['via'][0]
-    rules_dict={
-      "id": via['cwe'][0],
-      "name": "LanguageSpecificPackageVulnerability",
-      "shortDescription": {
-                "text": via['title']
-              },
-      "defaultConfiguration": {
-      "level": level
-      },
-      "helpUri": via['url'],
-      "properties": {
-        "precision": "very-high",
-        "security-severity": via['cvss']['score'],
-        "tags": [
-          "vulnerability",
-          "security",
-          this_result['severity'].upper()
-        ]
-      }
-    }  
-    rules_list.append(rules_dict)        
 
-    result_dict={
-      'ruleId': via['cwe'][0],
-      'ruleIndex': rule_index,
-      'level': level,
-      'message': {'text': message},
-      'locations': [ {
-        'physicalLocation': {
-          'artifactLocation': {
-            'uri': this_result['name']
+    if not isinstance(via, str): # some vulnerabilities come via others - no sarif for them
+      rules_dict={
+        "id": via['cwe'][0],
+        "name": "LanguageSpecificPackageVulnerability",
+        "shortDescription": {
+                  "text": via['title']
+                },
+        "defaultConfiguration": {
+        "level": level
+        },
+        "helpUri": via['url'],
+        "properties": {
+          "precision": "very-high",
+          "security-severity": via['cvss']['score'],
+          "tags": [
+            "vulnerability",
+            "security",
+            this_result['severity'].upper()
+          ]
+        }
+      }  
+      rules_list.append(rules_dict)        
+
+      result_dict={
+        'ruleId': via['cwe'][0],
+        'ruleIndex': rule_index,
+        'level': level,
+        'message': {'text': message},
+        'locations': [ {
+          'physicalLocation': {
+            'artifactLocation': {
+              'uri': this_result['name']
+              }
             }
-          }
-      } ]
-    }
+        } ]
+      }
 
-    result_list.append(result_dict)
-    rule_index+=1
+      result_list.append(result_dict)
+      rule_index+=1
 
   output_dict['runs'][0]['tool']['rules']=rules_list
   output_dict['runs'][0]['results']=result_list
