@@ -1,4 +1,4 @@
-name: Security npm dependency check
+name: Security npm dependency check - main
 
 on:
   workflow_dispatch:
