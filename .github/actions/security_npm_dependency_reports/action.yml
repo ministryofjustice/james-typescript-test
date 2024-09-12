@@ -77,11 +77,9 @@ runs:
     with:
       channel-id: ${{ inputs.channel_id}}
       payload: |
-        { "text":
-          {
+        { 
           "type": "mrkdwn",
           "text": "Output: ```${{ steps.slack_message_result.outputs.SLACK_TXT }}```"
-          }
         }
     env:
       SLACK_BOT_TOKEN: ${{ inputs.SLACK_BOT_TOKEN }}
