@@ -86,7 +86,7 @@ def main():
       "helpUri": via['url'],
       "properties": {
         "precision": "very-high",
-        "security-severity": via['cvs']['score'],
+        "security-severity": via['cvss']['score'],
         "tags": [
           "vulnerability",
           "security",
