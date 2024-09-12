@@ -30,7 +30,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: Audit for vulnerabilities
       id: npm
-      run: npm run security_audit -o json > npm-security-check-reports.json
+      run: npx audit-ci --config audit-ci.json -o json > npm-security-check-reports.json
       continue-on-error: true
     - name: Audit for vulnerabilities - better
       id: npm-better
