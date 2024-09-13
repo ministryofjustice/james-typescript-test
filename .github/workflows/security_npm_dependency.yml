@@ -8,8 +8,7 @@ on:
 jobs:
   security-npm-depencency-check:
     name: Project security npm dependency check
-#    uses: ministryofjustice/hmpps-github-actions/.github/workflows/security_npm_dependency.yml@0.1
-    uses: ./.github/workflows/security_npm_dependency_TEST.yml
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/security_npm_dependency.yml@0.2
     with:
       channel_id: ${{ vars.SLACK_CHANNEL_ID }}
     secrets:
