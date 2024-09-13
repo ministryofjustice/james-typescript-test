@@ -115,7 +115,7 @@ def main():
       result_list.append(result_dict)
       rule_index+=1
 
-  output_dict['runs'][0]['tool']['rules']=rules_list
+  output_dict['runs'][0]['tool']['driver']['rules']=rules_list
   output_dict['runs'][0]['results']=result_list
 
   with open(output_file,'w') as f:
