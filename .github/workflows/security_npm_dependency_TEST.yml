@@ -1,4 +1,4 @@
-name: Security npm dependency check
+name: Security npm dependency check TEST
 
 on:
   workflow_call:
