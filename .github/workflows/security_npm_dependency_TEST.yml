@@ -5,7 +5,7 @@ on:
     inputs:
       channel_id:
         required: false
-        default: 'NONE'
+        default: 'NO_SLACK_CHANNEL'
         type: string
       node_version:
         required: false
