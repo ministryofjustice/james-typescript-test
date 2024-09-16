@@ -39,7 +39,8 @@ jobs:
       continue-on-error: true
       env:
         NO_COLOR: TRUE
-    - uses: ministryofjustice/hmpps-github-actions/.github/actions/security_npm_dependency_reports@0.2 # WORKFLOW_VERSION
+    - uses: ./.github/actions/security_npm_dependency_reports@0.2 # WORKFLOW_VERSION
+#    - uses: ministryofjustice/hmpps-github-actions/.github/actions/security_npm_dependency_reports@0.2 # WORKFLOW_VERSION
       if: success() || steps.npm.conclusion == 'failure'
       with:
         channel_id: ${{ inputs.channel_id }}
