@@ -76,7 +76,7 @@ runs:
     env:
       SLACK_BOT_TOKEN: ${{ inputs.SLACK_BOT_TOKEN }}
   - uses: slackapi/slack-github-action@e28cf165c92ffef168d23c5c9000cffc8a25e117 # v1.24.0
-    if: inputs.channel_id != 'NO_SLACK'
+    if: inputs.channel_id != 'NO_SLACK' && !contains(steps.slack_message_result.outputs.SLACK_TXT, 'All good!')
     with:
       channel-id: ${{ inputs.channel_id}}
       payload: |
