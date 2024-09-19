@@ -1,4 +1,4 @@
-name: Security npm outdated check
+name: Security npm outdated check - TEST
 
 on:
   workflow_call:
