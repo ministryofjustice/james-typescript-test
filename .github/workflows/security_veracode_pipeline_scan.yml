@@ -8,7 +8,8 @@ on:
 jobs:
   security-veracode-policy-check:
     name: Project security veracode policy scan
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/security_veracode_pipeline_scan.yml@0.2
+    uses: ./.github/workflows/security_veracode_pipeline_scan_TEST.yml
+    # uses: ministryofjustice/hmpps-github-actions/.github/workflows/security_veracode_pipeline_scan.yml@0.2
     with:
       channel_id: ${{ vars.SECURITY_ALERTS_SLACK_CHANNEL_ID || 'NO_SLACK' }}
     secrets:
