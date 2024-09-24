@@ -8,7 +8,7 @@ on:
         default: 'NO_SLACK'
         type: string
     secrets:
-      HMPPS_SLACK_BOT_TOKEN:
+      HMPPS_SRE_SLACK_BOT_TOKEN:
         description: Slack bot token
         required: true
       HMPPS_VERACODE_API_ID_0:
@@ -139,7 +139,7 @@ jobs:
       if: steps.veracode-pipeline-scan.outcome == 'failure' && inputs.channel_id != 'NO_SLACK'
       uses: ministryofjustice/hmpps-github-actions/.github/actions/slack_failure_results@0.2 # WORKFLOW_VERSION
       with:
-        SLACK_BOT_TOKEN: ${{ secrets.HMPPS_SLACK_BOT_TOKEN }}
+        SLACK_BOT_TOKEN: ${{ secrets.HMPPS_SRE_SLACK_BOT_TOKEN }}
         channel_id: ${{ inputs.channel_id }}
         input_file: results.txt
 
@@ -181,4 +181,4 @@ jobs:
             ]
           }
       env:
-        SLACK_BOT_TOKEN: ${{ secrets.HMPPS_SLACK_BOT_TOKEN }}
+        SLACK_BOT_TOKEN: ${{ secrets.HMPPS_SRE_SLACK_BOT_TOKEN }}
