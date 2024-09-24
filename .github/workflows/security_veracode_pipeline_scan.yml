@@ -8,8 +8,8 @@ on:
 jobs:
   security-veracode-policy-check:
     name: Project security veracode policy scan
-    uses: ministryofjustice/james-typescript-test/.github/workflows/security_veracode_pipeline_scan_TEST.yml@main
-    # uses: ministryofjustice/hmpps-github-actions/.github/workflows/security_veracode_pipeline_scan.yml@0.2
+    # uses: ministryofjustice/james-typescript-test/.github/workflows/security_veracode_pipeline_scan_TEST.yml@main
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/security_veracode_pipeline_scan.yml@0.3
     with:
       channel_id: ${{ vars.SECURITY_ALERTS_SLACK_CHANNEL_ID || 'NO_SLACK' }}
     secrets: inherit
