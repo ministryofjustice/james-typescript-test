@@ -15,7 +15,7 @@ on:
           - dev
           - prod
           - staging
-        default: dev
+        default: 'dev'
       version: # Only used when run manually - build.yml will include it
         description: Image version
         type: string
