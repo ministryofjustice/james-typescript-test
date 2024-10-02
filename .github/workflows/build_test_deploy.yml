@@ -45,7 +45,7 @@ jobs:
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/test_helm_lint.yml@HEAT-337-helm-lint
     secrets: inherit
     with:
-      env: ${{ inputs.environment }}
+      environment: ${{ inputs.environment }}
 
   # These bits to be done...
   # build:
