@@ -15,6 +15,7 @@ on:
           - dev
           - prod
           - staging
+        default: dev
       version: # Only used when run manually - build.yml will include it
         description: Image version
         type: string
@@ -45,7 +46,6 @@ jobs:
     secrets: inherit
     with:
       env: ${{ inputs.environment }}
-
 
   # These bits to be done...
   # build:
