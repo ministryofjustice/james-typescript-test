@@ -15,38 +15,37 @@ on:
           - dev
           - prod
           - staging
-      version:
+      version: # Only used when run manually - build.yml will include it
         description: Image version
         type: string
-        required: true      
+        required: true
 
 jobs:
-  build_node:
-    name: Build node
-    uses: ministryofjustice/hmpps-github-actions/workflows/node_build.yml@HEAT-337-helm-lint
-    with:
-      push: true
-    secrets: inherit
-  unit_test:
-    name: Unit test
-    uses: ministryofjustice/hmpps-github-actions/workflows/node_unit_test.yml@HEAT-337-helm-lint
-    with:
-      push: true
-    secrets: inherit
-    needs: ['build_node']
-  integration_test:
-    name: Integration test
-    uses: ministryofjustice/hmpps-github-actions/workflows/node_integration_test.yml@HEAT-337-helm-lint
-    with:
-      push: true
-    secrets: inherit
-    needs: ['build_node']
+  # build_node:
+  #   name: Build node
+  #   uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_build.yml@HEAT-337-helm-lint
+  #   secrets: inherit
+  # unit_test:
+  #   name: Unit test
+  #   uses: ministryofjustice/hmpps-github-actions/workflows/node_unit_test.yml@HEAT-337-helm-lint
+  #   with:
+  #     push: true
+  #   secrets: inherit
+  #   needs: ['build_node']
+  # integration_test:
+  #   name: Integration test
+  #   uses: ministryofjustice/hmpps-github-actions/workflows/node_integration_test.yml@HEAT-337-helm-lint
+  #   with:
+  #     push: true
+  #   secrets: inherit
+  #   needs: ['build_node']
   helm_lint:
     name: helm_lint
-    uses: ministryofjustice/hmpps-github-actions/workflows/test_helm_lint.yml@HEAT-337-helm-lint
-    with:
-      push: true
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/test_helm_lint.yml@HEAT-337-helm-lint
     secrets: inherit
+    with:
+      env: ${{ inputs.environment }}
+
 
   # These bits to be done...
   # build:
