@@ -22,10 +22,10 @@ on:
         required: true
 
 jobs:
-  # build_node:
-  #   name: Build node
-  #   uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_build.yml@HEAT-337-helm-lint
-  #   secrets: inherit
+  build_node:
+    name: Build node
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_build.yml@HEAT-337-helm-lint
+    secrets: inherit
   # unit_test:
   #   name: Unit test
   #   uses: ministryofjustice/hmpps-github-actions/workflows/node_unit_test.yml@HEAT-337-helm-lint
