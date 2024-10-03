@@ -28,7 +28,7 @@ jobs:
     secrets: inherit
   helm_lint:
     name: helm lint
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/test_helm_lint.yml@HEAT-337-helm-lint
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/test_helm_lint.yml@main
     secrets: inherit
     with:
       environment: ${{ inputs.environment || 'dev' }}
