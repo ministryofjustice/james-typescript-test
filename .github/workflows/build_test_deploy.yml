@@ -24,7 +24,7 @@ on:
 jobs:
   node_build:
     name: node build
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_build_test.yml@HEAT-353-typescript-node-workflow
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_build.yml@HEAT-353-typescript-node-workflow
     secrets: inherit
   node_unit_tests:
     name: node unit tests
