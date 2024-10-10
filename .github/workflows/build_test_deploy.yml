@@ -83,7 +83,7 @@ jobs:
     steps:
       - name: approved
         env: 
-          ENV_NAME: ${{ inputs.environment }}
+          ENV_NAME: ${{ inputs.environment || 'development'  }}
         run: write-host "Approve for $($env.ENV_NAME)"
   build:
     name: Build docker image from hmpps-github-actions
