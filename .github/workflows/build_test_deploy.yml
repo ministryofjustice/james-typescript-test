@@ -76,7 +76,7 @@ jobs:
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/test_helm_lint.yml@main
     secrets: inherit
     with:
-      environment: ${{ inputs.environment || 'dev' }}
+      environment: ${{ inputs.environment || 'development' }}
   dev-approval-gate:
     needs: [node_unit_tests,node_integration_tests,helm_lint]
     runs-on: ubuntu-latest
