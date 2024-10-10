@@ -20,20 +20,53 @@ on:
         description: Image version
         type: string
         required: true
+      docker_registry:
+        description: Docker registry
+        required: true
+        default: 'ghcr.io'
+        type: choice
+        options:
+          - 'ghcr.io'
+          - 'quay.io'
+      registry_org:
+        description: Docker registry organisation
+        required: true
+        default: 'ministryofjustice'
+        type: choice
+        options:
+          - 'ministryofjustice'
+          - 'hmpps'
+      additional_docker_tag:
+        description: Additional docker tag that can be used to specify stable tags
+        required: false
+        default: ''
+        type: string
+      push:
+        description: Push docker image to registry flag
+        required: true
+        default: true
+        type: boolean
+      docker_multiplatform:
+        description: docker multiplatform build or not
+        required: true
+        default: true
+        type: boolean
+    
+
 
 jobs:
   node_build:
     name: node build
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_build.yml@HEAT-353-typescript-node-workflow
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_build.yml@main
     secrets: inherit
   node_unit_tests:
     name: node unit tests
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_unit_tests.yml@HEAT-353-typescript-node-workflow
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_unit_tests.yml@main
     needs: [node_build]
     secrets: inherit
   node_integration_tests:
     name: node integration tests
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_integration_tests.yml@HEAT-353-typescript-node-workflow
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_integration_tests.yml@main
     needs: [node_build]
     secrets: inherit
   helm_lint:
@@ -42,6 +75,25 @@ jobs:
     secrets: inherit
     with:
       environment: ${{ inputs.environment || 'dev' }}
+  dev-approval-gate:
+    needs: [node_unit_tests,node_integration_tests,helm_lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: approved
+        env: 
+          ENV_NAME: ${{ inputs.environment }}
+        run: write-host "Approve for $($env.ENV_NAME)"
+  build:
+    name: Build docker image from hmpps-github-actions
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@main
+    needs: [dev-approval-gate]
+    with:
+      docker_registry: ${{ inputs.docker_registry || 'ghcr.io' }}
+      registry_org: ${{ inputs.registry_org || 'ministryofjustice' }}
+      additional_docker_tag: ${{ inputs.additional_docker_tag }}
+      push: ${{ inputs.push || true }}
+      docker_multiplatform: ${{ inputs.docker_multiplatform || false }}
+    
 
   # These bits to be done...
   # build:
