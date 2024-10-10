@@ -12,10 +12,10 @@ on:
         type: choice
         required: true
         options:
-          - dev
+          - development
           - prod
           - staging
-        default: 'dev'
+        default: 'development'
       version: # Only used when run manually - build.yml will include it
         description: Image version
         type: string
