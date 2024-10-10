@@ -52,7 +52,9 @@ on:
         default: true
         type: boolean
     
-
+defaults:
+  run:
+    shell: pwsh
 
 jobs:
   node_build:
