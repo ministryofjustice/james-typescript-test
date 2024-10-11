@@ -85,7 +85,7 @@ jobs:
       - name: approve
         env: 
           ENV_NAME: ${{ inputs.environment || 'development'  }}
-        run: write-host "Approve for ${ENV_NAME}"
+        run: echo "Approve for ${ENV_NAME}"
   build:
     name: Build docker image from hmpps-github-actions
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@main
