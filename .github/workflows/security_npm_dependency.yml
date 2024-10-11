@@ -7,7 +7,7 @@ on:
 jobs:
   security-npm-dependency-check:
     name: Project security npm dependency check
-#    uses: ministryofjustice/hmpps-github-actions/.github/workflows/security_npm_dependency.yml@v0.3 #WORFKLOW VERSION
+#    uses: ministryofjustice/hmpps-github-actions/.github/workflows/security_npm_dependency.yml@v0.3 #WORFKLOW VERSION BUMP
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/security_npm_dependency.yml@feat/include-python-sarif #WORFKLOW VERSION
 #    uses: ./.github/workflows/security_npm_dependency_TEST.yml
     with:
