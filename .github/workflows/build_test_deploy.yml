@@ -54,7 +54,7 @@ on:
     
 defaults:
   run:
-    shell: pwsh
+    shell: bash
 
 jobs:
   node_build:
@@ -79,12 +79,13 @@ jobs:
       environment: ${{ inputs.environment || 'development' }}
   dev-approval-gate:
     needs: [node_unit_tests,node_integration_tests,helm_lint]
+    environment: 'development'
     runs-on: ubuntu-latest
     steps:
-      - name: approved
+      - name: approve
         env: 
           ENV_NAME: ${{ inputs.environment || 'development'  }}
-        run: write-host "Approve for $($env.ENV_NAME)"
+        run: write-host "Approve for ${ENV_NAME}"
   build:
     name: Build docker image from hmpps-github-actions
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@main
