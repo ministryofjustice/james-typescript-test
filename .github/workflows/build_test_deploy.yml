@@ -86,17 +86,23 @@ jobs:
         env: 
           ENV_NAME: ${{ inputs.environment || 'development'  }}
         run: echo "Approve for ${ENV_NAME}"
+
+  create_app_version:
+    name: Create app version
+    needs: [dev-approval-gate]
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/create_app_version.yml@main
+    
   build:
     name: Build docker image from hmpps-github-actions
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@main
-    needs: [dev-approval-gate]
+    needs: [create_app_version]
     with:
       docker_registry: ${{ inputs.docker_registry || 'ghcr.io' }}
       registry_org: ${{ inputs.registry_org || 'ministryofjustice' }}
       additional_docker_tag: ${{ inputs.additional_docker_tag }}
       push: ${{ inputs.push || true }}
       docker_multiplatform: ${{ inputs.docker_multiplatform || false }}
-    
+      app_version: ${{ needs.create_app_version.outputs.version }}
 
   # These bits to be done...
   # build:
