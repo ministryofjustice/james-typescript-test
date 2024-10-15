@@ -79,6 +79,7 @@ jobs:
       environment: ${{ inputs.environment || 'development' }}
   build:
     name: Build docker image from hmpps-github-actions
+    # uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@main
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@move_create_app_version_in_action
     needs: 
       - helm_lint
