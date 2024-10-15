@@ -91,19 +91,12 @@ jobs:
       additional_docker_tag: ${{ inputs.additional_docker_tag }}
       push: ${{ inputs.push || true }}
       docker_multiplatform: ${{ inputs.docker_multiplatform || false }}
-  dev-approval-gate:
-    needs: [node_unit_tests,node_integration_tests,helm_lint]
-    environment: 'development'
-    runs-on: ubuntu-latest
-    steps:
-      - name: approve
-        env: 
-          ENV_NAME: ${{ inputs.environment || 'development'  }}
-        run: echo "Approve for ${ENV_NAME}"
   deploy_dev:
     name: Deploy 
     needs: 
-      - dev-approval-gate
+      - node_unit_tests
+      - node_integration_tests
+      - helm_lint
       - build
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/deploy_env.yml@main
     secrets: inherit
