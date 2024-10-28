@@ -2,7 +2,7 @@ name: Security npm dependency check
 on:
   workflow_dispatch:
   schedule:
-    - cron: "${{ vars.DAILY_CRON }}" # Every weekday at 05:35 UTC
+    - cron: "34 6 * * 1" # Every weekday at 05:35 UTC
 
 jobs:
   security-npm-dependency-check:
