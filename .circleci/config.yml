@@ -194,7 +194,7 @@ workflows:
     jobs:
       - hmpps/trivy_latest_scan:
           slack_channel: << pipeline.parameters.alerts-slack-channel >>
-          additional_parameters: '--db-repository "ghcr.io/aquasecurity/trivy-db:2","public.ecr.aws/aquasecurity/trivy-db"'
+          additional_args: '--db-repository "ghcr.io/aquasecurity/trivy-db:2","public.ecr.aws/aquasecurity/trivy-db"'
           context:
             - hmpps-common-vars
   # security-weekly:
