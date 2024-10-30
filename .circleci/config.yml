@@ -20,6 +20,15 @@ parameters:
     type: string
     default: 20.12-browsers
 
+  db_repo_1:
+    type: string
+    default: "ghcr.io/aquasecurity/trivy-db:2"
+    description: "Database repository for vulnerability database - main"
+  db_repo_2:
+    type: string
+    default: "public.ecr.aws/aquasecurity/trivy-db"
+    description: "Database repository for vulnerability database - backup"
+
 jobs:
   build:
     executor:
@@ -186,7 +195,7 @@ workflows:
   security:
     triggers:
       - schedule:
-          cron: "15 17 * * 1-5"
+          cron: "45 09 * * 1-5"
           filters:
             branches:
               only:
@@ -194,7 +203,7 @@ workflows:
     jobs:
       - hmpps/trivy_latest_scan:
           slack_channel: << pipeline.parameters.alerts-slack-channel >>
-          additional_args: --db-repository "ghcr.io/aquasecurity/trivy-db:2","public.ecr.aws/aquasecurity/trivy-db"
+          additional_args: --db-repository "<< pipeline.parameters.db_repo_1 >>","<< pipeline.parameters.db_repo_2 >>"
           context:
             - hmpps-common-vars
   # security-weekly:
