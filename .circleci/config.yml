@@ -1,7 +1,8 @@
 version: 2.1
 
 orbs:
-  hmpps: ministryofjustice/hmpps@8
+  # hmpps: ministryofjustice/hmpps@8
+  hmpps: ministryofjustice/hmpps@dev:7741ed1
   slack: circleci/slack@4.12.5
 
 parameters:
@@ -195,7 +196,7 @@ workflows:
   security:
     triggers:
       - schedule:
-          cron: "20 10 * * 1-5"
+          cron: "00 17 * * 1-5"
           filters:
             branches:
               only:
@@ -203,7 +204,6 @@ workflows:
     jobs:
       - hmpps/trivy_latest_scan:
           slack_channel: << pipeline.parameters.alerts-slack-channel >>
-          additional_args: --db-repository "<< pipeline.parameters.db_repo_1 >>","<< pipeline.parameters.db_repo_2 >>"
           context:
             - hmpps-common-vars
   # security-weekly:
