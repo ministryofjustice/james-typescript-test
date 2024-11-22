@@ -59,27 +59,27 @@ defaults:
 jobs:
   node_build:
     name: node build
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_build.yml@main
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_build.yml@v1
     secrets: inherit
   node_unit_tests:
     name: node unit tests
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_unit_tests.yml@main
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_unit_tests.yml@v1
     needs: [node_build]
     secrets: inherit
   node_integration_tests:
     name: node integration tests
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_integration_tests.yml@main
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_integration_tests.yml@v1
     needs: [node_build]
     secrets: inherit
   helm_lint:
     name: helm lint
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/test_helm_lint.yml@main
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/test_helm_lint.yml@v1
     secrets: inherit
     with:
       environment: ${{ inputs.environment || 'development' }}
   build:
     name: Build docker image from hmpps-github-actions
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@main
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@v1
     # uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@move_create_app_version_in_action
     needs: 
       - helm_lint
@@ -98,7 +98,7 @@ jobs:
       - node_integration_tests
       - helm_lint
       - build
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/deploy_env.yml@main
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/deploy_env.yml@HEAT-429_slack_notification_on_deploy
     secrets: inherit
     with:
       environment: 'dev'
