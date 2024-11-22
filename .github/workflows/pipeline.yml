@@ -76,7 +76,7 @@ jobs:
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/test_helm_lint.yml@v1
     secrets: inherit
     with:
-      environment: ${{ inputs.environment || 'development' }}
+      environment: ${{ inputs.environment || 'dev' }}
   build:
     name: Build docker image from hmpps-github-actions
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@v1
