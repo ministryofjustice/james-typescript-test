@@ -36,9 +36,10 @@
       "enabled": false
     },
     {
-      "matchManagers": ["github-actions"],
-      "groupName": "GitHub Actions updates",
-      "groupSlug": "github-actions"
+      "fileMatch": [
+        "(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$",
+        "(^|/)action\\.ya?ml$"
+      ]
     }
   ],
   "vulnerabilityAlerts": {
