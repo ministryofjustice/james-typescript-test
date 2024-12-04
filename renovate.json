@@ -34,13 +34,10 @@
       "matchPackageNames": ["node"],
       "matchUpdateTypes": ["major"],
       "enabled": false
-    },
-    {
-      "fileMatch": [
-        "(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$",
-        "(^|/)action\\.ya?ml$"
-      ]
     }
+  ],
+  "fileMatch": [
+    "^\\.github/workflows/.*\\.yml$"
   ],
   "vulnerabilityAlerts": {
     "stabilityDays": 0
