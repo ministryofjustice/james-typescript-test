@@ -8,7 +8,7 @@ generic-service:
   replicaCount: 4
 
   image:
-    repository: ghcr.io/ministryofjustice/james-project
+    repository: ghcr.io/ministryofjustice/james-typescript-test
     tag: app_version # override at deployment time
     port: 3000
 
