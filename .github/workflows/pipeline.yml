@@ -98,7 +98,7 @@ jobs:
       - node_integration_tests
       - helm_lint
       - build
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/deploy_env.yml@HEAT-429_slack_notification_on_deploy
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/deploy_env.yml@HEAT-422_commit_history
     secrets: inherit
     with:
       environment: 'dev'
