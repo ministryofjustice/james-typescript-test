@@ -109,7 +109,6 @@ Or run tests with the cypress UI:
 
 A changelog for the service is available [here](./CHANGELOG.md)
 
-
 ## Dependency Checks
 
 The template project has implemented some scheduled checks to ensure that key dependencies are kept up to date.
