@@ -34,10 +34,12 @@
       "matchPackageNames": ["node"],
       "matchUpdateTypes": ["major"],
       "enabled": false
+    },
+      "matchManagers": ["github-actions"],
+      "fileMatch": [
+    "^\\.github/workflows/.*\\.yml$"    
+      ]
     }
-  ],
-  "fileMatch": [
-    "^\\.github/workflows/.*\\.yml$"
   ],
   "vulnerabilityAlerts": {
     "stabilityDays": 0
