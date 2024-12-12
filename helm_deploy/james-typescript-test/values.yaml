@@ -2,14 +2,11 @@ generic-service:
   nameOverride: james-typescript-test
   productId: "DPS9999" # productId for the product that this belongs too, i.e. DPS001, see README.md for details
 
-  # the IRSA service account name for accessing AWS resources
-  # serviceAccountName: "james-typescript-test"
-
   replicaCount: 2
 
   image:
     repository: ghcr.io/ministryofjustice/james-typescript-test
-    tag: app_version # override at deployment time
+    tag: app_version # override this at deployment time
     port: 3000
 
   ingress:

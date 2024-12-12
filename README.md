@@ -3,6 +3,7 @@
 [![CircleCI](https://circleci.com/gh/ministryofjustice/james-typescript-test/tree/main.svg?style=svg)](https://circleci.com/gh/ministryofjustice/james-typescript-test)
 
 james's typescript based on the template
+There's only so much one can put in a README
 
 # Instructions
 
