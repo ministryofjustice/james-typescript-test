@@ -2,20 +2,20 @@
 
 ## Prerequisites
 
-- Ensure you have helm v3 client installed.
+- Ensure you have helm v3 client installed
 
 ```sh
 $ helm version
 version.BuildInfo{Version:"v3.0.1", GitCommit:"7c22ef9ce89e0ebeb7125ba2ebf7d421f3e82ffa", GitTreeState:"clean", GoVersion:"go1.13.4"}
 ```
 
-- Ensure a TLS cert for your intended hostname is configured and ready, see section below.
+- Ensure a TLS cert for your intended hostname is configured and ready, see section below
 
 ### Useful helm (v3) commands:
 
 __Test chart template rendering:__
 
-This will out the fully rendered kubernetes resources in raw yaml.
+This will out the fully rendered kubernetes resources in raw yaml
 
 ```sh
 helm template [path to chart] --values=values-dev.yaml
