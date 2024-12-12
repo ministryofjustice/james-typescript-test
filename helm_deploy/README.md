@@ -58,7 +58,7 @@ helm upgrade [release name] [path to chart]. \
 
 Ensure a certificate definition exists in the cloud-platform-environments repo under the relevant namespaces folder:
 
-e.g.
+e.g.:
 
 ```sh
 cloud-platform-environments/namespaces/live-1.cloud-platform.service.justice.gov.uk/[INSERT NAMESPACE NAME]/05-certificate.yaml
