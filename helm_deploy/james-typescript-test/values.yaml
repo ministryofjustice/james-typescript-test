@@ -9,7 +9,7 @@ generic-service:
 
   image:
     repository: ghcr.io/ministryofjustice/james-typescript-test
-    tag: app_version # override at deployment time
+    tag: app_version # override this at deployment time
     port: 3000
 
   ingress:
