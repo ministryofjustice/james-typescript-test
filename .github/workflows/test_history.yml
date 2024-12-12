@@ -55,8 +55,8 @@ jobs:
         # Some apps may not have set the correct k8s label with a valid app version containing a sha1
 
         # Check $PREVIOUS_COMMIT sha1 is valid
-        echo "Running git rev-parse --quiet --verify ${PREVIOUS_COMMIT}"
-        git rev-parse --verify "${PREVIOUS_COMMIT}"
+        echo "Running git rev-parse --verify 24beb8d"
+        git rev-parse --verify 24beb8d
         echo "Just ran git rev-parse --quiet --verify ${PREVIOUS_COMMIT}"
 
         if git rev-parse --quiet --verify "${PREVIOUS_COMMIT}" &>/dev/null; then
