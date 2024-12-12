@@ -35,7 +35,7 @@ defaults:
 jobs:
   do_stuff:
     name: node build
-    runs-on: "ubuntu-latests"
+    runs-on: "ubuntu-latest"
     steps:
     - name: find the latest deployment_name
       id: get-deployment-changelog
