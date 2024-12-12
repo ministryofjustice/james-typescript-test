@@ -26,7 +26,6 @@ on:
         default: ""
         description: When set it will limit the file changes shown in the changelog to the specified paths only. This is useful for multi-project builds where otherwise it will show all changes from all projects.
         required: false
-
           
 defaults:
   run:
