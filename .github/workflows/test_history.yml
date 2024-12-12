@@ -49,7 +49,7 @@ jobs:
         touch .deployment_changelog
 
         CURRENT_COMMIT="${{ github.sha }}"
-        PREVIOUS_COMMIT="${{ inputs.previous_commit }}"
+        PREVIOUS_COMMIT="24beb8d"
         echo "CURRENT_COMMIT=${CURRENT_COMMIT}"
         echo "PREVIOUS_COMMIT=${PREVIOUS_COMMIT}"
         # Some apps may not have set the correct k8s label with a valid app version containing a sha1
