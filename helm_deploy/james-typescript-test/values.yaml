@@ -2,9 +2,6 @@ generic-service:
   nameOverride: james-typescript-test
   productId: "DPS9999" # productId for the product that this belongs too, i.e. DPS001, see README.md for details
 
-  # the IRSA service account name for accessing AWS resources
-  # serviceAccountName: "james-typescript-test"
-
   replicaCount: 2
 
   image:
