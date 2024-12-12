@@ -56,7 +56,7 @@ jobs:
 
         # Check $PREVIOUS_COMMIT sha1 is valid
         echo "Running git rev-parse --quiet --verify ${PREVIOUS_COMMIT}"
-        git rev-parse --quiet --verify "${PREVIOUS_COMMIT}"
+        git rev-parse --verify "${PREVIOUS_COMMIT}"
         echo "Just ran git rev-parse --quiet --verify ${PREVIOUS_COMMIT}"
 
         if git rev-parse --quiet --verify "${PREVIOUS_COMMIT}" &>/dev/null; then
