@@ -97,7 +97,7 @@ jobs:
       - node_integration_tests
       - helm_lint
       - build
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/deploy_env.yml@HEAT-422_commit_history
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/deploy_env.yml@v2
     secrets: inherit
     with:
       environment: 'dev'
