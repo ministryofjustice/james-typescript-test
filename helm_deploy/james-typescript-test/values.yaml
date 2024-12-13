@@ -1,6 +1,6 @@
 generic-service:
   nameOverride: james-typescript-test
-  productId: "DPS9999" # productId for the product that this belongs too, i.e. DPS001 - see README.md for details
+  productId: "DPS9999" # productId for the product to which this belongs, i.e. DPS001 - see README.md for details
 
   replicaCount: 2
 
