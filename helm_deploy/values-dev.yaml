@@ -1,5 +1,5 @@
 ---
-# Per environment values which override defaults in james-typescript-test/values.yaml
+# Per environment values which override defaults in james-typescript-test/values.yaml - dev
 
 generic-service:
   replicaCount: 2
