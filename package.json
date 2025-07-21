@@ -141,7 +141,9 @@
     "prettier-plugin-jinja-template": "^2.1.0",
     "supertest": "^7.1.0",
     "ts-jest": "^29.3.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "eslint-config-prettier": "10.1.7",
+    "eslint-plugin-prettier": "4.2.3"
   },
   "overrides": {
     "@jgoz/esbuild-plugin-typecheck": {
